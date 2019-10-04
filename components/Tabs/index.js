@@ -15,7 +15,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
         const newTab = tabCreator(item);
         topics.appendChild(newTab);
     })
-    console.log(response);
 })
 
 const topics = document.querySelector('.topics');
