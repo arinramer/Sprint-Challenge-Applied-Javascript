@@ -70,3 +70,110 @@ function createCard(data) {
     author.appendChild(authorsName);
     return card;
 }
+
+const container = document.querySelector('.carousel-container');
+
+function carouselcreator() {
+    const carousel = document.createElement('div');
+    carousel.classList.add('carousel');
+    const left = document.createElement('div');
+    left.classList.add('left-button');
+    left.textContent = "<";
+    carousel.appendChild(left);
+    const mountains = document.createElement('img');
+    const computer = document.createElement('img');
+    const trees = document.createElement('img');
+    const turntable = document.createElement('img');
+    mountains.src = './assets/carousel/mountains.jpeg';
+    computer.src = './assets/carousel/computer.jpeg';
+    trees.src = './assets/carousel/trees.jpeg';
+    turntable.src = './assets/carousel/turntable.jpeg';
+    carousel.appendChild(mountains);
+    carousel.appendChild(computer);
+    carousel.appendChild(trees);
+    carousel.appendChild(turntable);
+    const right = document.createElement('div');
+    right.classList.add('right-button');
+    right.textContent = ">";
+    carousel.appendChild(right);
+    let index = 0;
+    mountains.style.display = "block";
+    function reset() {
+        computer.style.display = "none";
+        trees.style.display = "none";
+        turntable.style.display = "none";
+        mountains.style.display = "none";
+    }
+    right.addEventListener("click", () => {
+        index++;
+        console.log(index);
+        mountains.style.display = "none";
+        if (index === 0) {
+            computer.style.display = "none";
+            trees.style.display = "none";
+            turntable.style.display = "none";
+            mountains.style.display = "block";
+        } else if (index === 1) {
+            computer.style.display = "block";
+            trees.style.display = "none";
+            turntable.style.display = "none";
+            mountain.style.display = "none";
+        } else if (index === 2) {
+            computer.style.display = "none";
+            trees.style.display = "block";
+            turntable.style.display = "none";
+            mountain.style.display = "none";
+        } else if (index === 3) {
+            computer.style.display = "none";
+            trees.style.display = "none";
+            turntable.style.display = "block";
+            mountain.style.display = "none";
+        } else if (index > 3) {
+            index = 0;
+        }
+        computer.style.display = "none";
+        trees.style.display = "none";
+        turntable.style.display = "none";
+        mountains.style.display = "block";
+    })
+    left.addEventListener("click", () => {
+        index--;
+        console.log(index);
+        if (index === 0) {
+            reset();
+            computer.style.display = "none";
+            trees.style.display = "none";
+            turntable.style.display = "none";
+            mountains.style.display = "block";
+        } else if (index === 1) {
+            reset();
+            computer.style.display = "block";
+            trees.style.display = "none";
+            turntable.style.display = "none";
+            mountain.style.display = "none";
+        } else if (index === 2) {
+            reset();
+            computer.style.display = "none";
+            trees.style.display = "block";
+            turntable.style.display = "none";
+            mountain.style.display = "none";
+        } else if (index === 3) {
+            reset();
+            computer.style.display = "none";
+            trees.style.display = "none";
+            turntable.style.display = "block";
+            mountain.style.display = "none";
+        } else if (index < 0) {
+            reset();
+            index = 3;
+            computer.style.display = "none";
+            trees.style.display = "none";
+            turntable.style.display = "block";
+            mountain.style.display = "none";
+        }
+    })
+    
+    return carousel;
+}
+
+container.appendChild(carouselcreator());
